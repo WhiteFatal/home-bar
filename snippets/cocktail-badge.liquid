@@ -1,0 +1,23 @@
+{%- doc -%}
+  Intended do add a small styled badge (e.g. "Fresh" or "Classic") based on a passed variable.
+
+  @param {string} label - the text to display in the badge
+
+  @example
+  {% render 'cocktail-badge', label: "fresh" %}
+{%- enddoc -%}
+
+<span class="badge">
+  {{ label }}
+</span>
+
+{% stylesheet %}
+  .badge {
+    display: inline-block;
+    padding: 4px 10px;
+    background: var(--color-primary, #333);
+    color: white;
+    border-radius: 999px;
+    font-size: 0.75rem;
+  }
+{% endstylesheet %}

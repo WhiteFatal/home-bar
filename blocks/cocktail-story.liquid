@@ -1,0 +1,35 @@
+{% liquid
+  assign story = closest.product.metafields.custom.cocktail_story.value
+%}
+
+{% if story %}
+  <div class="cocktail-story">
+    <p class="cocktail-story__origin">{{ story.origin }}</p>
+    <p class="cocktail-story__fun-fact">🍸 {{ story.fun_fact }}</p>
+  </div>
+{% endif %}
+
+{% stylesheet %}
+.cocktail-story {
+  border-left: 3px solid var(--color-foreground, #333);
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  background: rgba(0,0,0,0.03);
+}
+.cocktail-story__origin {
+  font-style: italic;
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+}
+.cocktail-story__fun-fact {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Cocktail Story",
+  "presets": [{ "name": "Cocktail Story" }]
+}
+{% endschema %}
